@@ -10,6 +10,13 @@
     android:padding="@dimen/_14sdp"
     tools:context=".AuthorizationFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
     <com.fredporciuncula.phonemoji.PhonemojiTextInputLayout
         android:id="@+id/phone"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -17,8 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Input phone number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/guidline">
 
         <com.fredporciuncula.phonemoji.PhonemojiTextInputEditText
             android:id="@+id/phoneEditText"
@@ -30,13 +36,13 @@
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:background="@drawable/button_bac"
         android:text="Next"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/phone" />
+        app:layout_constraintTop_toBottomOf="@id/guidline" />
 
     <ProgressBar
         android:id="@+id/progressBar"

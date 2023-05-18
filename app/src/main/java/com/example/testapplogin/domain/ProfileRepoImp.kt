@@ -12,17 +12,21 @@ class ProfileRepoImp @Inject
 constructor(
     private val serviceApi: ApiInterface,
 ) : ProfileRepo {
-    override suspend fun getProfile(): Resource<Response<Profile>>{
+    override suspend fun getProfile(): Resource<Response<Profile>> {
         return try {
             val result =
                 serviceApi.getProfile("Bearer " + Hawk.get("accessToken"))
             if (result.code() == Constants.SuccessCode) {
                 Resource.Success(result)
             } else {
-                Resource.Error(data = null,result.message())
+                if (result.code() == Constants.ExpiredTokenCode) {
+                    Hawk.put("ExpiredAccessToken", 401)
+                } else {
+                }
+                Resource.Error(data = null, result.message())
             }
         } catch (e: Exception) {
-            Resource.Error(null,e.message)
+            Resource.Error(null, e.message)
         }
     }
 }

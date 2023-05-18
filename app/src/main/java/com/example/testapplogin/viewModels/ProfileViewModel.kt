@@ -7,6 +7,7 @@ import com.example.testapplogin.common.Resource
 import com.example.testapplogin.common.UiEvent
 import com.example.testapplogin.domain.CheckAuthRepo
 import com.example.testapplogin.domain.ProfileRepo
+import com.orhanobut.hawk.Hawk
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -17,7 +18,6 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileRepo) 
 
     private val _phone = MutableStateFlow<UiEvent>(UiEvent.Empty)
     val profile get() = _phone
-
     fun getProfile() {
         viewModelScope.launch {
             _phone.value = UiEvent.Loading
@@ -28,8 +28,11 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileRepo) 
                 }
 
                 is Resource.Error -> {
-                    _phone.value = UiEvent.Error(resource.message)
-
+                    if (resource.data?.code() == 401) {
+                        Hawk.put("ExpiredAccessToken", 401)
+                    } else {
+                        _phone.value = UiEvent.Error(resource.message)
+                    }
                 }
             }
         }

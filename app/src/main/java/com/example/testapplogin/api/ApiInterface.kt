@@ -40,7 +40,7 @@ interface ApiInterface {
     @POST("/api/v1/users/register/")
     suspend fun registration(
         @Body registration: Registration,
-        @Header("Authorization") auth: String
+      //  @Header("Authorization") auth: String
     ): Response<RegistrationResponse>
 
     @PUT("/api/v1/users/me/")

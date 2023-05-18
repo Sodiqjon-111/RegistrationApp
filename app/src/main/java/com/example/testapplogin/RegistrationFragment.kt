@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -44,13 +45,28 @@ class RegistrationFragment : Fragment() {
 
 
         binding.btnNext.setOnClickListener {
-            viewModel.registration(
-                registration = Registration(
-                    binding.phoneNumber.text.toString(),
-                    binding.name.text.toString(),
-                    binding.userName.text.toString()
+            if (binding.userName.text.toString().length < 5) {
+                Toast.makeText(
+                    requireContext(),
+                    "Minimum username length must be 5",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (binding.phoneNumber.text.toString().length != 13) {
+                Toast.makeText(
+                    requireContext(),
+                    "Enter valid phone number with (+)",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewModel.registration(
+                    registration = Registration(
+                        binding.phoneNumber.text.toString(),
+                        binding.name.text.toString(),
+                        binding.userName.text.toString()
+                    )
                 )
-            )
+            }
+
         }
         lifecycleScope.launchWhenCreated {
             viewModel.registration.collectLatest { event ->
@@ -64,12 +80,18 @@ class RegistrationFragment : Fragment() {
                         binding.progressBar.isVisible = false
                         val data = event.data as? RegistrationResponse
                         Hawk.put("accessToken", data?.access_token)
+                        Hawk.put("refreshToken", data?.refresh_token)
                         if (data != null) {
                             findNavController().navigate(R.id.action_registrationFragment_to_profileFragment)
                         }
                     }
 
                     is UiEvent.Error -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "This phone number or username already exist",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         binding.progressBar.isVisible = false
                         binding.errorTv.isVisible = true
 

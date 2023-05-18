@@ -53,8 +53,9 @@ data class ProfileResponse(
     val city: String?,
     val instagram: String?,
     val status: String?,
-    // val avatar: String?,
+    val avatar: String?,
 ) : Parcelable
+
 
 data class RegistrationResponse(
     val refresh_token: String,
@@ -69,6 +70,13 @@ data class UpdateProfile(
     val city: String?,
     val instagram: String?,
     val status: String?,
-    // val avatar: String?,
+    val avatar: Avatar?,
+) : Parcelable
+
+
+@Parcelize
+data class Avatar(
+    var filename: String?,
+    var base_64: String?
 ) : Parcelable
 
