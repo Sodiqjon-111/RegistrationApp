@@ -1,4 +1,4 @@
-package com.example.testapplogin
+package com.example.testapplogin.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.testapplogin.R
 import com.example.testapplogin.common.Constants
 import com.example.testapplogin.common.SendAuth
 import com.example.testapplogin.common.UiEvent

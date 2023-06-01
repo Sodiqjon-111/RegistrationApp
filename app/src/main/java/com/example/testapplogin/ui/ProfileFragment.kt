@@ -1,10 +1,7 @@
-package com.example.testapplogin
+package com.example.testapplogin.ui
 
 import android.content.ContentValues.TAG
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.testapplogin.R
 import com.example.testapplogin.common.Constants
 import com.example.testapplogin.common.Profile
 import com.example.testapplogin.common.RefreshToken
 import com.example.testapplogin.common.TokenResponse
 import com.example.testapplogin.common.UiEvent
-import com.example.testapplogin.common.UpdateProfile
 import com.example.testapplogin.databinding.FragmentProfileBinding
 import com.example.testapplogin.viewModels.ProfileViewModel
 import com.example.testapplogin.viewModels.RefreshTokenViewModel

@@ -1,4 +1,4 @@
-package com.example.testapplogin
+package com.example.testapplogin.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +9,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.testapplogin.common.CheckAuthResponse
+import com.example.testapplogin.R
 import com.example.testapplogin.common.Registration
 import com.example.testapplogin.common.RegistrationResponse
 import com.example.testapplogin.common.UiEvent

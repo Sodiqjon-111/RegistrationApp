@@ -1,4 +1,4 @@
-package com.example.testapplogin
+package com.example.testapplogin.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.testapplogin.databinding.ActivityMainBinding
+import com.example.testapplogin.R
 import com.example.testapplogin.databinding.FragmentSplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+
 @AndroidEntryPoint
 
 class SplashFragment : Fragment() {

@@ -1,28 +1,24 @@
-package com.example.testapplogin
+package com.example.testapplogin.ui
 
 import android.Manifest
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.testapplogin.common.PermissionUtils
+import com.example.testapplogin.R
 import com.example.testapplogin.common.Avatar
 import com.example.testapplogin.common.Constants
 import com.example.testapplogin.common.Profile
@@ -37,8 +33,6 @@ import com.example.testapplogin.viewModels.UpdateProfileViewModel
 import com.orhanobut.hawk.Hawk
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import java.io.ByteArrayOutputStream
-import java.io.File
 
 @AndroidEntryPoint
 class EditProfileFragment : Fragment() {

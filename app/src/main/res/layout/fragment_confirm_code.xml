@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/_14sdp"
-    tools:context=".AuthorizationFragment">
+    tools:context=".ui.AuthorizationFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidline"

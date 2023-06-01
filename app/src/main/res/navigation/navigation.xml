@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.testapplogin.SplashFragment"
+        android:name="com.example.testapplogin.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/authorizationFragment"
-        android:name="com.example.testapplogin.AuthorizationFragment"
+        android:name="com.example.testapplogin.ui.AuthorizationFragment"
         android:label="fragment_authorization"
         tools:layout="@layout/fragment_authorization" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmCodeFragment"
-        android:name="com.example.testapplogin.ConfirmCodeFragment"
+        android:name="com.example.testapplogin.ui.ConfirmCodeFragment"
         android:label="fragment_confirm_code"
         tools:layout="@layout/fragment_confirm_code" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.testapplogin.RegistrationFragment"
+        android:name="com.example.testapplogin.ui.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.testapplogin.ProfileFragment"
+        android:name="com.example.testapplogin.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.testapplogin.EditProfileFragment"
+        android:name="com.example.testapplogin.ui.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
         <action
